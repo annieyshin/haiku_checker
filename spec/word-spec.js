@@ -11,8 +11,14 @@ describe('Word', function() {
   //   expect(newWord.countSyllables()).toEqual([false, false, true, false, true])
   // })
 
-  it('should use areLettersVowels to see if there are two vowels next to each other', function() {
+  it('should use countSyllables to see if there are two vowels next to each other', function() {
     let newWord = new Word("look");
     expect(newWord.countSyllables()).toEqual(1)
   })
+
+  it('should use countSyllables to see if a word ends with an e', function() {
+    let newWord = new Word("splice");
+    expect(newWord.countSyllables()).toEqual(1)
+  })
+
 })

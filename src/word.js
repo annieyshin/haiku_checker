@@ -9,17 +9,17 @@ class Word {
     const y = 'y'
     let letters = this.word.split("");
 
-    let vowel_count = 0;
+    let vowelCount = 0;
     for (let i = 0; i < letters.length; ++i) {
       if (vowels.includes(letters[i])) {
-        vowel_count += 1;
+        vowelCount += 1;
       }
       // for (let j = 0; j < vowels.length; ++j) {
         // if (letters[i] === vowels[j]) {
     }
     // for each letter in letters, if it is a vowel,
     // push a true, else push false
-    return vowel_count
+    return vowelCount
   }
 
   countSyllables() {
@@ -39,14 +39,16 @@ class Word {
     }
     areLettersVowels.forEach(function(element, index) {
       if (element) {
-        console.log("Reached");
         let vowelRemainder = areLettersVowels.slice(index + 1);
-        console.log("Reached2")
         if (vowelRemainder[0] === true) {
           syllableCount -= 1;
         }
       }
     })
+    if (letters.slice(-1).pop() === 'e') {
+      console.log(syllableCount);
+      syllableCount -= 1;
+    }
     return syllableCount;
   }
 }
