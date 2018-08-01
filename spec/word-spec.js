@@ -27,8 +27,13 @@ describe('Word', function() {
   })
 
   it('should use countSyllables to see if a word has y in the middle', function() {
-    let newWord = new Word("kayak");
+    let newWord = new Word("bayou");
     expect(newWord.countSyllables()).toEqual(2)
+  })
+
+  it('should use countSyllables to see if a word has y in the middle', function() {
+    let newWord = new Word("syllable");
+    expect(newWord.countSyllables()).toEqual(3)
   })
 
 })
