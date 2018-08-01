@@ -23,22 +23,31 @@ class Word {
   }
 
   countSyllables() {
-    const vowels = 'aeiou'
-    const consonants = "bcdfghjklmnpqrstvwxyz"
-    const y = 'y'
+    const vowels = 'aeiou';
+    const consonants = "bcdfghjklmnpqrstvwxyz";
+    const y = 'y';
     let letters = this.word.split("");
+    let syllableCount = this.countVowels();
 
-    let syllable_count = this.countVowels()
-
-    let areLettersVowels = []
+    let areLettersVowels = [];
     for (let i = 0; i < letters.length; ++i) {
       if (vowels.includes(letters[i])) {
-        areLettersVowels.push(true)
+        areLettersVowels.push(true);
       } else if (consonants.includes(letters[i])) {
-        areLettersVowels.push(false)
+        areLettersVowels.push(false);
       }
     }
-    return areLettersVowels
+    areLettersVowels.forEach(function(element, index) {
+      if (element) {
+        console.log("Reached");
+        let vowelRemainder = areLettersVowels.slice(index + 1);
+        console.log("Reached2")
+        if (vowelRemainder[0] === true) {
+          syllableCount -= 1;
+        }
+      }
+    })
+    return syllableCount;
   }
 }
 
