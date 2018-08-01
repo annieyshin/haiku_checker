@@ -21,4 +21,9 @@ describe('Word', function() {
     expect(newWord.countSyllables()).toEqual(1)
   })
 
+  it('should use countSyllables to see if a word ends with an y', function() {
+    let newWord = new Word("away");
+    expect(newWord.countSyllables()).toEqual(2)
+  })
+
 })

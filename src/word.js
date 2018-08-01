@@ -46,8 +46,17 @@ class Word {
       }
     })
     if (letters.slice(-1).pop() === 'e') {
-      console.log(syllableCount);
       syllableCount -= 1;
+    }
+
+    let findY = letters.includes(y);
+    if (findY == true) {
+      true
+    } else if (findY == false) {
+      let indexPriorLetter = (letters.indexOf('y')) - 1;
+      if (consonants.includes(letters[indexPriorLetter])) {
+        syllableCount += 1
+      }
     }
     return syllableCount;
   }
