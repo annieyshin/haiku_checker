@@ -5,7 +5,7 @@ describe('Word', function() {
     let newWord = new Word("abstract");
     expect(newWord.countVowels()).toEqual(2);
   })
-  
+
   it('should use countSyllables to see if there are two vowels next to each other', function() {
     let newWord = new Word("look");
     expect(newWord.main()).toEqual(1)
@@ -30,5 +30,12 @@ describe('Word', function() {
     let newWord = new Word("syllable");
     expect(newWord.main()).toEqual(3)
   })
+
+
+  it('should use test words in third line haiku to account for words ending in le', function() {
+    let newWord = new Word("syllable");
+    expect(newWord.main()).toEqual(3)
+  })
+
 
 })

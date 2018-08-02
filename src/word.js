@@ -7,16 +7,20 @@ class Word {
   main() {
     // account for some words ending in 's', words ending in 'le',
     let vowelCount = this.countVowels();
-    let syllables = this.countSyllablesBasic(vowelCount);
+    let letters = this.letters;
+    if (letters.slice(-1).pop() === 's') {
+      // singularWord = new Word(letters.splice(-1, 1).join())
+      console.log("prior to removing s from the word: " + this.word);
+      this.word = letters.splice(letters.length-1, 1).join()
+      console.log("removing s from the word: " + this.word);
+    }
+    let syllables = this.countSyllablesBasic(vowelCount)
     // 1. strip any 's' from the end
     // 2. then run 'countSyllablesBasic'
     // 3. if it ends with 'le' then add 1 to syllables
-    let letters = this.letters;
-
     if ((letters[letters.length-2] + letters[letters.length-1]) == 'le') {
       syllables += 1
     }
-    console.log("Syllables from main: " + syllables);
     return syllables
   }
 
@@ -25,7 +29,6 @@ class Word {
     const consonants = "bcdfghjklmnpqrstvwxyz"
     const y = 'y'
     let letters = this.word.split("");
-
     let vowelCount = 0;
     for (let i = 0; i < letters.length; ++i) {
       if (vowels.includes(letters[i])) {
@@ -44,6 +47,7 @@ class Word {
     const consonants = "bcdfghjklmnpqrstvwxyz";
     const y = 'y';
     let letters = this.letters;
+    console.log("here is the wrod array: " + letters);
     let syllableCount = vowelCount;
 
     let areLettersVowels = [];
@@ -75,7 +79,7 @@ class Word {
         syllableCount += 1
       }
     }
-    console.log("syllables from countSyllablesBasic: " + syllableCount)
+    console.log(syllableCount)
     return syllableCount;
   }
 
